@@ -15,7 +15,7 @@ class Checker
 	private int row, col;  // row and col of checker
 	private int dy = 0;	 // y-velocity of checker	- currently set to 0
 	private int radius;	// radius of checker	
-	private Color color;  // color of checker
+	private int color;  // color of checker
 	private boolean placed = false; // has the checker been placed in the grid?
 
 	// METHODS:
@@ -29,7 +29,7 @@ class Checker
 	 * @param radiusIn
 	 * @param colorIn
 	 */
-	public Checker (int xIn, int yIn, int radiusIn, Color colorIn)
+	public Checker (int xIn, int yIn, int radiusIn, int colorIn)
 	{
 		x = xIn;
 		y = yIn;
@@ -56,21 +56,15 @@ class Checker
 	{
 		col = colIn;
 	}
-	
-	public int getColorAsInt()
+
+	public int getColor()
 	{
-		if (color.equals(Color.RED))
-		{
-			return ConnectFour.RED;
-		}
-		else
-		{
-			return ConnectFour.BLUE;
-		}
+		return color;
 	}
+	
 
 	/**
-	 * Move the ball.  Add the velocity to its center.
+	 * Move the checker.  Add the velocity to its center.
 	 */
 	public void move()
 	{
@@ -117,12 +111,19 @@ class Checker
 	
 
 	/**
-	 * This method draws the ball.
+	 * This method draws the checker.
 	 * @param g (graphics object)
 	 */
 	public void draw(Graphics g)
 	{
-		g.setColor(color);
+		if (color == ConnectFour.RED)
+		{
+			g.setColor(new Color(190, 0, 70));
+		}
+		else
+		{
+			g.setColor(new Color(40, 0, 220));
+		}
 		g.fillOval(x - radius, y - radius, 2 * radius, 2 * radius);
 	}
 }

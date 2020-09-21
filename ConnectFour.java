@@ -43,7 +43,6 @@ implements KeyListener
 	// checker arrays
 	private static Checker[] redCheckers = new Checker[NUM_COLS * NUM_ROWS];
 	private static Checker [] blueCheckers = new Checker[NUM_COLS * NUM_ROWS];
-	private static Checker currentChecker;
 	private static int currentRedIndex = 0;
 	private static int currentBlueIndex = 0;
 
@@ -71,10 +70,10 @@ implements KeyListener
 		}
 
 		// create first checkers
-		redCheckers[currentRedIndex] = createNewChecker(Color.RED);
+		redCheckers[currentRedIndex] = createNewChecker(RED);
 		currentRedIndex++;
 
-		blueCheckers[currentBlueIndex] = createNewChecker(Color.BLUE);
+		blueCheckers[currentBlueIndex] = createNewChecker(BLUE);
 		currentBlueIndex++;
 
 		// Show the window 
@@ -93,7 +92,7 @@ implements KeyListener
 	@Override
 	public void keyTyped(KeyEvent e)
 	{
-		// TODO Auto-generated method stub
+	
 
 	}
 
@@ -134,7 +133,7 @@ implements KeyListener
 				// only do these updates if we actually placed the checker
 				if (redCheckers[currentRedIndex - 1].placed())
 				{
-					redCheckers[currentRedIndex] = createNewChecker(Color.RED);
+					redCheckers[currentRedIndex] = createNewChecker(RED);
 					currentRedIndex++;
 
 
@@ -148,7 +147,7 @@ implements KeyListener
 				// only do these updates if we actually placed the checker
 				if (blueCheckers[currentBlueIndex - 1].placed())
 				{
-					blueCheckers[currentBlueIndex] = createNewChecker(Color.BLUE);
+					blueCheckers[currentBlueIndex] = createNewChecker(BLUE);
 					currentBlueIndex++;
 				}
 
@@ -163,7 +162,7 @@ implements KeyListener
 	{
 		int row = c.getRow();
 		int col = c.getCol();
-		int playerColor = c.getColorAsInt();
+		int playerColor = c.getColor();
 		int connect4Count = 0;
 		
 		for (int i = col - 3; i <= col + 3; i++)
@@ -254,7 +253,7 @@ implements KeyListener
 	}
 
 
-	public static Checker createNewChecker(Color color)
+	public static Checker createNewChecker(int color)
 	{
 		Checker c = new Checker(CHECKER_BIRTH_CENTER_X, CHECKER_BIRTH_CENTER_Y, CHECKER_RADIUS, color);
 		return c;
