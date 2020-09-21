@@ -1,0 +1,4 @@
+# example of a file to ignore
+secrets.txt
+
+# *.txt means ignore all .txt files
