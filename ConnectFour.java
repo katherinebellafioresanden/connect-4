@@ -18,8 +18,8 @@ implements KeyListener
 {
 
 	// screen info
-	public static final int SCREEN_WIDTH = 900;
-	public static final int SCREEN_HEIGHT = 850;
+	public static final int SCREEN_WIDTH = 850;
+	public static final int SCREEN_HEIGHT = 875;
 	public static final int TITLE_BAR = 25;
 	public static final Color BACKGROUND = Color.BLACK;
 
